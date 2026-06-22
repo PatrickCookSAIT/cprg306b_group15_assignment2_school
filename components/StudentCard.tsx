@@ -12,3 +12,5 @@ const StudentCard = ({student} : StudentProps) => {
         </div>
     );
 };
+
+export default StudentCard;
