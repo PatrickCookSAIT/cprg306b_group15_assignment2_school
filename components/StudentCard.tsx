@@ -5,27 +5,52 @@ type StudentProps = {
 };
 const StudentCard = ({student} : StudentProps) => {
     return(
-        <div className="bg-white border border-blue-200 rounded-xl p-5 shadow-sm flex flex-col gap-3">
-            <h2 className = "text-base font-semibold text-blue-400 flex-1"> {student.firstName} {student.lastName}</h2>
-            <p>Date of birth: {student.dob}</p>
-            <p>Current Grade: <span className={`font-bold ${
-                student.currentGrade?.includes("A")
-                ? "text-green-600"
-                : student.currentGrade?.includes("B")
-                ? "text-green-300"
-                : student.currentGrade?.includes("C")
-                ? "text-yellow-300"
-                : student.currentGrade?.includes("D")
-                ? "text-orange-400"
-                : student.currentGrade?.includes("F")
-                ? "text-red-500"
-                : "text-black"
-            }`}>
-                {student.currentGrade}
-            </span>
-         
-            </p>
-        </div>
+        <>
+            {/*display for larger screens. meant for web app*/}
+            <div className="hidden sm:block bg-white border border-blue-200 rounded-xl  shadow-sm flex-col">
+                <span className="flex justify-center border-b border-blue-200  w-full">
+                    <h2 className = "text-base font-semibold text-blue-400"> {student.firstName} {student.lastName}</h2>
+                </span>
+                <p className = "ml-2 text-sm text-slate-400">Date of birth: {student.dob}</p>
+                <p className = "text-sm ml-2">Current Grade: <span className={`font-bold ${
+                    student.currentGrade?.includes("A")
+                    ? "text-green-600"
+                    : student.currentGrade?.includes("B")
+                    ? "text-green-300"
+                    : student.currentGrade?.includes("C")
+                    ? "text-yellow-300"
+                    : student.currentGrade?.includes("D")
+                    ? "text-orange-400"
+                    : student.currentGrade?.includes("F")
+                    ? "text-red-500"
+                    : "text-black"
+                }`}>
+                    {student.currentGrade}
+                </span>
+            
+                </p>
+            </div>
+            {/*display for mobile and smaller screens*/}
+            <div className="block sm:hidden flex-col text-center border-blue-200 bg-white border rounded-full w-15 h-15 ">
+                <h2 className = "text-2xl font-semibold text-blue-400 p-[2px]"> {student.firstName[0]}.{student.lastName[0]}</h2>
+                <span className={`font-bold  ${
+                    student.currentGrade?.includes("A")
+                    ? "text-green-600"
+                    : student.currentGrade?.includes("B")
+                    ? "text-green-300"
+                    : student.currentGrade?.includes("C")
+                    ? "text-yellow-300"
+                    : student.currentGrade?.includes("D")
+                    ? "text-orange-400"
+                    : student.currentGrade?.includes("F")
+                    ? "text-red-500"
+                    : "text-black"
+                }`}>
+                    {student.currentGrade}
+                </span>
+                
+            </div>
+        </>
     );
 };
 
