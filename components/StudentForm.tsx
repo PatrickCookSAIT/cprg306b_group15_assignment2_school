@@ -21,7 +21,7 @@ const StudentForm = () => {
         defaultValues:{
             firstName: "",
             lastName:"",
-            dob:"1900/01/01",
+            dob:"2000-01-01",
             currentGrade:""
         }
     });
@@ -64,12 +64,12 @@ const StudentForm = () => {
             </div>
 
             <div className="flex flex-row justify-around mx-100">
-            <FormField label="Date of birth" error={errors.dob?.message} required hint="Format of YYYY/MM/DD">
-                <input className={inputClassStyle} {...register("dob")}/>
+            <FormField label="Date of birth" error={errors.dob?.message} required >
+                <input type="date" className={inputClassStyle} {...register("dob")}/>
 
             </FormField>
 
-            <FormField label="Student's current grade" error={errors.currentGrade?.message}>
+            <FormField  label="Student's current grade" error={errors.currentGrade?.message}>
                 <select className={inputClassStyle} {...register("currentGrade")}>
                 <option value =''>Select a letter grade ...</option>
                 <option value ='A+'>A+</option>
