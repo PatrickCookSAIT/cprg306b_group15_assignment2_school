@@ -7,7 +7,7 @@ import {studentRegistrationSchema, type StudentRegistrationData, studentFields} 
 import FormField from "../components/FormField"
 
 
-const inputClassStyle = 'w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900' 
+const inputClassStyle = 'text-center w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900' 
 + "focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
 
 const StudentForm = () => {
@@ -38,8 +38,11 @@ const StudentForm = () => {
         )
     }
     return (
-         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5">
-
+         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 mt-10">
+            <div className="flex m-auto border-b">
+                <h2 className="text-base font-semibold text-blue-400">Register a New Student</h2>
+            </div>
+            <div className="flex flex-row justify-around mx-100">
             <FormField label="First Name" error={errors.firstName?.message} required>
                 <input className={inputClassStyle} {...register("firstName")}/>
 
@@ -49,7 +52,9 @@ const StudentForm = () => {
                 <input className={inputClassStyle} {...register("lastName")}/>
 
             </FormField>
+            </div>
 
+            <div className="flex flex-row justify-around mx-100">
             <FormField label="Date of birth" error={errors.dob?.message} required hint="Format of YYYY/MM/DD">
                 <input className={inputClassStyle} {...register("dob")}/>
 
@@ -73,6 +78,11 @@ const StudentForm = () => {
                 </select>
 
             </FormField>
+            </div>
+            <button type="submit" disabled={isSubmitting} className="bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white
+               hover:bg-sky-700 disabled:opacity-50 rounded-lg">
+                {isSubmitting ? "registering" : "Register"}
+               </button>
          </form>
     )
 }
