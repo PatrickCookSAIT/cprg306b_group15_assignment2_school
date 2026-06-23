@@ -7,39 +7,48 @@ import {studentRegistrationSchema, type StudentRegistrationData, studentFields} 
 import FormField from "../components/FormField"
 
 
-const inputClassStyle = 'text-center w-full rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900' 
+const inputClassStyle = 'text-center w-50 rounded-lg border border-slate-300 px-3 py-2 text-sm text-slate-900' 
 + "focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent"
 
 const StudentForm = () => {
-    const {register, handleSubmit, trigger, formState: {errors, isSubmitting, isSubmitSuccessful}} 
+
+    const [submittedStudent, setSubmittedStudent] =
+    useState<StudentRegistrationData | null>(null);
+
+    const {register, handleSubmit, trigger, reset, formState: {errors, isSubmitting, isSubmitSuccessful}} 
     = useForm<StudentRegistrationData>({
         resolver:zodResolver(studentRegistrationSchema),
         defaultValues:{
             firstName: "",
             lastName:"",
             dob:"1900/01/01",
-            currentGrade:"N/A"
+            currentGrade:""
         }
     });
 
     async function onSubmit(data: StudentRegistrationData){
         await new Promise ((resolve=> setTimeout(resolve,1000)))
+        setSubmittedStudent(data);
     }
 
-    if(isSubmitSuccessful){
+    if(isSubmitSuccessful && submittedStudent){
         return(
             <main className="max w-xl mx-auto px-6 py-16 text-center">
-          <div className="text-5xl mb-4">
-🎉
-          </div>
-          <h2 className="text-2xl font-bold text-slate-900">You are registered</h2>
-          <p className="text-slate-500">Check your @sait.ca inbox for a confirmation email</p>
+          <h2 className="text-2xl font-bold text-slate-900">
+            <span className=" font-semibold text-blue-400">{submittedStudent.firstName} {submittedStudent.lastName} </span>
+           has been registered!</h2>
+          <div className=" flex items-center mt-2">
+            <button type="button" onClick={()=>{setSubmittedStudent(null); reset();}} className=" m-auto w-100 bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white
+               hover:bg-sky-700 disabled:opacity-50 rounded-lg">
+                Register Another Student
+               </button>
+            </div>
         </main>
         )
     }
     return (
          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-5 mt-10">
-            <div className="flex m-auto border-b">
+            <div className="flex m-auto border-b border-sky-200">
                 <h2 className="text-base font-semibold text-blue-400">Register a New Student</h2>
             </div>
             <div className="flex flex-row justify-around mx-100">
@@ -79,10 +88,12 @@ const StudentForm = () => {
 
             </FormField>
             </div>
-            <button type="submit" disabled={isSubmitting} className="bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white
+            <div className=" flex items-center">
+            <button type="submit" disabled={isSubmitting} className=" m-auto w-100 bg-sky-600 px-5 py-2.5 text-sm font-semibold text-white
                hover:bg-sky-700 disabled:opacity-50 rounded-lg">
-                {isSubmitting ? "registering" : "Register"}
+                {isSubmitting ? "registering..." : "Register"}
                </button>
+            </div>
          </form>
     )
 }
