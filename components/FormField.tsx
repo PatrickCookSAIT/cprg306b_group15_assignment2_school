@@ -8,7 +8,7 @@ type FormFieldProps = {
 
 const FormField = ({label, error, hint, required= false, children}:FormFieldProps) => {
   return (
-    <div className="flex flex-col gap-1.5">
+    <div className="flex items-center flex-col gap-1.5">
       <label className="font-semibold text-slate-700 text-sm">{label}
         {/*style is optional, only there if required is true */}
         {required && <span className="text-red-500 ml-1">*</span>}
