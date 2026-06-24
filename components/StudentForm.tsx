@@ -3,7 +3,7 @@ import {useState} from "react"
 import {useForm} from 'react-hook-form'
 import {zodResolver} from "@hookform/resolvers/zod"
 import {studentRegistrationSchema, type StudentRegistrationData, studentFields} from "../lib/schema"
-
+import {addStudent} from "../lib/actions"
 import FormField from "../components/FormField"
 
 
@@ -25,11 +25,16 @@ const StudentForm = () => {
             currentGrade:""
         }
     });
-
+    
+    //call addStudent and add or error out transaction
     async function onSubmit(data: StudentRegistrationData){
-        await new Promise ((resolve=> setTimeout(resolve,1000)))
+    const result = await addStudent(data);
+    if (result.success) {
         setSubmittedStudent(data);
+    } else {
+        console.error(result.error);
     }
+}
 
     if(isSubmitSuccessful && submittedStudent){
         return(
