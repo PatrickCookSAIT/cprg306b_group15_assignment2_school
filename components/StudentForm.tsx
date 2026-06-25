@@ -1,3 +1,11 @@
+/*
+ * Authors: Ash Burn, Patrick Cook
+ * Date: June 24th, 2026
+ * Program: 
+ *
+ * Description: 
+ */
+
 'use client'
 import {useState} from "react"
 import {useForm} from 'react-hook-form'

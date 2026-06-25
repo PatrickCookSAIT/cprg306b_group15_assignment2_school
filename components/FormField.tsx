@@ -1,3 +1,11 @@
+/*
+ * Authors: Ash Burn, Patrick Cook
+ * Date: June 24th, 2026
+ * Program: 
+ *
+ * Description: 
+ */
+
 type FormFieldProps = {
     label: string;
     error?: string;
