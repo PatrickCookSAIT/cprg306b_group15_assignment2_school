@@ -1,3 +1,11 @@
+/*
+ * Authors: Ash Burn, Patrick Cook
+ * Date: June 24th, 2026
+ * Program: 
+ *
+ * Description: 
+ */
+
 import type { Student } from "../lib/students";
 
 type StudentProps = {

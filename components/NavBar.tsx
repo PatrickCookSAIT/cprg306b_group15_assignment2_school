@@ -1,3 +1,11 @@
+/*
+ * Authors: Ash Burn, Patrick Cook
+ * Date: June 24th, 2026
+ * Program: NavBar
+ *
+ * Description: NavBar component to be used in the layout. Simply defines the NavBar with the School name and some fake page names with anchor tags. The anchor tags do not lead anywhere and are for aesthetics.  
+ */
+
 const Navbar = () => {
   return (
   <>

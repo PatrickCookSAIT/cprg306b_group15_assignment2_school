@@ -1,6 +1,14 @@
+/*
+ * Authors: Ash Burn, Patrick Cook
+ * Date: June 24th, 2026
+ * Program: Main Page
+ *
+ * Description: This is the main page for the school webpage portal, rendered as a server component. 
+ * When loaded, it reads the student records from students.json via getAllStudents. Students are processed
+ * through StudentCard for display. Renders StudentForm which lets the user add a student through a form. 
+ * The output is a grid of Student Cards with details and a registration form for new students. 
+ */
 
-
-import Image from "next/image";
 import { getAllStudents } from "@/lib/students";
 import StudentCard from '@/components/StudentCard'
 import StudentForm from '@/components/StudentForm'

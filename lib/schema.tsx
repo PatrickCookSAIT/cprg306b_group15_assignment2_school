@@ -1,3 +1,13 @@
+/*
+ * Authors: Ash Burn, Patrick Cook
+ * Date: June 24th, 2026
+ * Program: Validation Schema
+ *
+ * Description: Defines validation rules for student registration with Zod. Input is raw form data entered by user.
+ * Processing checks that the fields are not empty. Processing checks that the DOB matches YYYY-MM-DD. Grade is an
+ * optional input. 
+ */
+
 import {z} from 'zod'
 
 export const studentRegistrationSchema = z.object({
