@@ -1,9 +1,9 @@
 /*
  * Authors: Ash Burn, Patrick Cook
  * Date: June 24th, 2026
- * Program: 
+ * Program: FormField
  *
- * Description: 
+ * Description: used to define props for form fields and to set the formatting for labels, hints, errors and required star.
  */
 
 type FormFieldProps = {

@@ -7,7 +7,7 @@
  * This program manipulates the students.json file which is used for storage of data.
  *
  * getAllStudents returns all Students in an array.
- * getStudentById proccesses the array with an input of a student ID
+ * getStudentById processes the array with an input of a student ID
  * and returns the corresponding Student.
  * saveAllStudents writes the array to the file.
  *
@@ -39,5 +39,4 @@ export async function getStudentById(id: string): Promise<Student | undefined> {
 
 //Save
 export async function saveAllStudents(students: Student[]): Promise<void> {
-  await fs.writeFile(dataFilePath, JSON.stringify(students, null, 2));
-}
+  await fs.writeFile(dataFilePath, JSON.stringify(students, null, 2));}

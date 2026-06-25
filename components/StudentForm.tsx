@@ -1,9 +1,15 @@
 /*
  * Authors: Ash Burn, Patrick Cook
  * Date: June 24th, 2026
- * Program: 
+ * Program: StudentForm
  *
- * Description: 
+ * Description: component for StudentForm
+ * two displays depending on value of isSubmitSuccessful
+ * 1. displays the form inputs for firstName, lastName, dob and grade
+ *    dob uses a calender select, grade is optional and uses a dropdown list of letter grade values to select from
+ *    button for submission will submit the form if all fields are filled as required. Changes submit to successful and adds submittedStudent
+ * 2. displays successful submission page. Shows firstName and lastName of submittedStudent
+ *    new button to return to the registration side of the form. When clicked, resets submittedStudent to null
  */
 
 'use client'
