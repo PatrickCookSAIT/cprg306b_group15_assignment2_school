@@ -17,7 +17,7 @@ export type Student = {
   firstName: string;
   lastName: string;
   dob: string;
-  currentGrade: string;
+  currentGrade?: string;
 };
 
 let students: Student[] = [
