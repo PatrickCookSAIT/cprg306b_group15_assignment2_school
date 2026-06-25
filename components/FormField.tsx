@@ -6,6 +6,7 @@ type FormFieldProps = {
     children: React.ReactNode
 }
 
+//set form field formatting for labels, hints, errors and required star
 const FormField = ({label, error, hint, required= false, children}:FormFieldProps) => {
   return (
     <div className="flex items-center flex-col gap-1.5">

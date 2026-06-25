@@ -21,7 +21,7 @@ export type Student = {
   firstName: string;
   lastName: string;
   dob: string;
-  currentGrade: string;
+  currentGrade?: string;
 };
 
 const dataFilePath = path.join(process.cwd(), "lib", "students.json");
