@@ -18,7 +18,7 @@ import {
   studentRegistrationSchema,
   type StudentRegistrationData,
 } from "./schema";
-import { getAllStudents, saveAllStudents,  type Student } from "./students";
+import { getAllStudents, saveAllStudents, type Student } from "./students";
 
 //adds a new student
 export async function addStudent(data: StudentRegistrationData) {
@@ -36,8 +36,8 @@ export async function addStudent(data: StudentRegistrationData) {
 
   // Build/save new student
   const newStudent: Student = { id: nextID, ...parsed.data };
-  //students.push(newStudent);
-  //await saveAllStudents(students);
+  students.push(newStudent);
+  await saveAllStudents(students);
 
   // Refresh student list page
   revalidatePath("/");
