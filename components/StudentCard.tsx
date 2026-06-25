@@ -1,9 +1,11 @@
 /*
  * Authors: Ash Burn, Patrick Cook
  * Date: June 24th, 2026
- * Program: 
+ * Program: StudentCard
  *
- * Description: 
+ * Description: set display cards for student data. 
+ * Displays rectangle card with full name, date of birth and current grade for larger screens
+ * displays smaller, circle card with first and last initials and current grade for smaller screens (mobile)
  */
 
 import type { Student } from "../lib/students";

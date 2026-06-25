@@ -18,7 +18,7 @@ import {
   studentRegistrationSchema,
   type StudentRegistrationData,
 } from "./schema";
-import { getAllStudents, saveAllStudents, type Student } from "./students";
+import { getAllStudents, saveAllStudents,  type Student } from "./students";
 
 //adds a new student
 export async function addStudent(data: StudentRegistrationData) {
