@@ -1,3 +1,18 @@
+/*
+ * Authors: Ash Burn, Patrick Cook
+ * Date: June 24th, 2026
+ * Program: Student data access
+ *
+ * Description: Defines the Student type and the functions for read and write for students.
+ * This program manipulates the students.json file which is used for storage of data.
+ *
+ * getAllStudents returns all Students in an array.
+ * getStudentById proccesses the array with an input of a student ID
+ * and returns the corresponding Student.
+ * saveAllStudents writes the array to the file.
+ *
+ */
+
 import { promises as fs } from "fs";
 import path from "path";
 
