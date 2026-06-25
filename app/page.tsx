@@ -4,7 +4,7 @@
  * Program: Main Page
  *
  * Description: This is the main page for the school webpage portal, rendered as a server component. 
- * When loaded, it reads the student records from students.json via getAllStudents. Students are processed
+ * When loaded, it reads the student records from students.ts via getAllStudents. Students are processed
  * through StudentCard for display. Renders StudentForm which lets the user add a student through a form. 
  * The output is a grid of Student Cards with details and a registration form for new students. 
  */
