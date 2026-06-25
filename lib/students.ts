@@ -1,24 +1,28 @@
+import { promises as fs } from "fs";
+import path from "path";
+
 export type Student = {
   id: string;
   firstName: string;
   lastName: string;
   dob: string;
-  currentGrade: string;
+  currentGrade?: string;
 };
 
-export const students: Student[] = [
-  { id: "1", firstName: "Sean", lastName: "Connery", dob: "1930-08-25",currentGrade: "A" },
-  { id: "2", firstName: "Roger", lastName: "Moore", dob: "1927-10-14",currentGrade: "B-" },
-  { id: "3", firstName: "Timothy", lastName: "Dalton", dob: "1946-03-21",currentGrade: "C+" },
-  { id: "4", firstName: "Pierce", lastName: "Brosnan", dob: "1953-05-16",currentGrade: "A+" },
-  { id: "5", firstName: "Daniel", lastName: "Craig", dob: "1968-03-02",currentGrade: "B+" },
-];
+const dataFilePath = path.join(process.cwd(), "lib", "students.json");
 
+// Grab from JSON
 export async function getAllStudents(): Promise<Student[]> {
-  return students;
+  return JSON.parse(await fs.readFile(dataFilePath, "utf-8"));
 }
 
+//Get student by ID
 export async function getStudentById(id: string): Promise<Student | undefined> {
+  const students = await getAllStudents();
   return students.find((s) => s.id === id);
 }
- 
+
+//Save
+export async function saveAllStudents(students: Student[]): Promise<void> {
+  await fs.writeFile(dataFilePath, JSON.stringify(students, null, 2));
+}
