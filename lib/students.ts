@@ -4,39 +4,78 @@
  * Program: Student data access
  *
  * Description: Defines the Student type and the functions for read and write for students.
- * This program manipulates the students.json file which is used for storage of data.
+ * This program manipulates an Array of all the Students and adds to it when the user adds a new student.
  *
- * getAllStudents returns all Students in an array.
- * getStudentById processes the array with an input of a student ID
+ * getAllStudents returns all Students in the array.
+ * getStudentById proccesses the array with an input of a student ID
  * and returns the corresponding Student.
- * saveAllStudents writes the array to the file.
+ * saveAllStudents writes to the array.
  *
  */
-
-import { promises as fs } from "fs";
-import path from "path";
 
 export type Student = {
   id: string;
   firstName: string;
   lastName: string;
   dob: string;
-  currentGrade?: string;
+  currentGrade: string;
 };
 
-const dataFilePath = path.join(process.cwd(), "lib", "students.json");
+let students: Student[] = [
+  {
+    id: "1",
+    firstName: "Sean",
+    lastName: "Connery",
+    dob: "1930-08-25",
+    currentGrade: "A",
+  },
+  {
+    id: "2",
+    firstName: "Roger",
+    lastName: "Moore",
+    dob: "1927-10-14",
+    currentGrade: "B-",
+  },
+  {
+    id: "3",
+    firstName: "Timothy",
+    lastName: "Dalton",
+    dob: "1946-03-21",
+    currentGrade: "C+",
+  },
+  {
+    id: "4",
+    firstName: "Pierce",
+    lastName: "Brosnan",
+    dob: "1953-05-16",
+    currentGrade: "A+",
+  },
+  {
+    id: "5",
+    firstName: "Daniel",
+    lastName: "Craig",
+    dob: "1968-03-02",
+    currentGrade: "B+",
+  },
+];
 
-// Grab from JSON
+// Return all students
 export async function getAllStudents(): Promise<Student[]> {
-  return JSON.parse(await fs.readFile(dataFilePath, "utf-8"));
+  return students;
 }
 
-//Get student by ID
+// Find one student by id
 export async function getStudentById(id: string): Promise<Student | undefined> {
-  const students = await getAllStudents();
   return students.find((s) => s.id === id);
 }
 
+<<<<<<< HEAD
 //Save
 export async function saveAllStudents(students: Student[]): Promise<void> {
   await fs.writeFile(dataFilePath, JSON.stringify(students, null, 2));}
+=======
+// Add a student to the in-memory list
+export async function saveAllStudents(updated: Student[]): Promise<void> {
+  students = updated;
+}
+>>>>>>> 8c73a9f (changed data to local array)

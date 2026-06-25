@@ -7,7 +7,7 @@
  * Server side actions for managing the data of students. These run on the server so that they
  * may read and write files. The input is validated form data for a new student. The data is re
  * validated on this side with the Zod schema. Loads the current list, assigns a new id based
- * on length of list, appends the new student. Outputs to students.json and sends a result on whether
+ * on length of list, appends the new student. Outputs to students.ts and sends a result on whether
  * the save succeeded.
  */
 
